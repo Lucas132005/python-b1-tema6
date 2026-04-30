@@ -12,7 +12,7 @@ analizada.
 
 Utilizaremos el módulo nltk.sentiment.vader para analizar el sentimiento de un texto.
 Te recmendamos que revises la documentación:
-https://www.nltk.org/api/nltk.sentiment.vader.html
+https://www.nltk.org/a  pi/nltk.sentiment.vader.html
 
 En concreto, revisa la función polarity_scores(text) 
 
@@ -70,12 +70,18 @@ from nltk.sentiment import SentimentIntensityAnalyzer
 nltk.download("vader_lexicon")
 
 def sentiment_analysis(text):
-    #Write your code here
-    pass
-
+    texto = SentimentIntensityAnalyzer()
+    puntuacion = texto.polarity_scores(text)
+    result = puntuacion["compound"]
+    if result > 0.05:
+        return "Positive"
+    elif result < -0.05:
+        return "Negative"
+    else:
+        return "Neutral"
 
 # Si quieres probar tu código, descomenta las siguientes líneas y ejecuta el script
 # Si vols provar el teu codi, descomenta les línies següents i executa l'script
 
-# text = "This product is okay."
-# print(sentiment_analysis(text))
+text = "I LOVE YOU."
+print(sentiment_analysis(text))
