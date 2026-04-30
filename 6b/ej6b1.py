@@ -88,4 +88,4 @@ def create_log(names):
 
 # Si quieres probar tu código, descomenta las siguientes líneas y ejecuta el script
 # Si vols provar el teu codi, descomenta les línies següents i executa l'script
-create_log(["Juan", "Pedro", "Marta"])
+#create_log(["Juan", "Pedro", "Marta"])
