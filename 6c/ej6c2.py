@@ -76,21 +76,25 @@ Exemple:
 
 
 def read_txt_file(path: str) -> str:
-    #Write your code here
-    pass
-
+    with open(path,"r",encoding="UTF-8") as f:
+        texto = f.read()
+        return texto
 
 def words_counter(text: str, word: str) -> int:
-    #Write your code here
-    pass
-
+    contador = 0
+    word_min = word.lower()
+    for i in text.split():  #Recuerda que con el bucle for la variable temporal i, toma cada una de las letras.
+        if i.lower().strip(".,") == word_min:       #Por eso se usa .split() para que separe por palabras, por defecto corta cuando ve lo que hay dentro del parentesis,como no hay nada corta por los espacios en blanco.
+            contador +=1    #Tambien usamos .lower y .strip por 1 motivo, que el sistema reconozca tambien Data o data. o data,. Por ende .lower minimiza las letras i .strip para eliminar puntos y comas.
+    return contador
 
 # Si quieres probar tu código, descomenta las siguientes líneas y ejecuta el script
 # Si vols provar el teu codi, descomenta les línies següents i executa l'script
-# path = "files/ej6c2_data_engineer.txt"
-# text = read_txt_file(path)
-# print(text[-25:])
 
-# word = "data"
-# count = words_counter(text, word)
-# print(f"The word '{word}' appears {count} times in the text.")
+#path = "files/ej6c2_data_engineer.txt"
+#text = read_txt_file(path)
+#print(text[-25:])
+
+#word = "data"
+#count = words_counter(text, word)
+#print(f"The word '{word}' appears {count} times in the text.")
